@@ -7,11 +7,10 @@ It supports four basic operations — addition, subtraction, multiplication, and
 ## 📚 About the Project
 
 This is the **first smart contract project** I wrote using Foundry.  
-The goal was to learn how to:
+The goal was to:
 
-- Write and structure a smart contract
-- Use events and access control
-- Write tests with Foundry's `forge-std` framework
+- Get familiar with Foundry.
+- Learn how to erite tests with Foundry's `forge-std` framework.
 
 I kept the code and test cases simple so it's easier to read and understand.
 
@@ -21,7 +20,7 @@ I kept the code and test cases simple so it's easier to read and understand.
 - ✅ Emits events for each operation
 - ✅ Only admin can change the result manually
 - ✅ Division by zero protection
-- ✅ Full test suite using Foundry
+- ✅ Full test suite using Foundry (100% coverage)
 
 ## 🧪 Run the tests
 
