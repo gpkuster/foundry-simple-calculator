@@ -5,7 +5,6 @@ import "../src/Calculator.sol";
 import "forge-std/Test.sol";
 
 contract CalculatorTest is Test {
-
     Calculator calculator;
     uint256 public initialValue = 0;
     address public admin = vm.addr(1);
@@ -16,7 +15,7 @@ contract CalculatorTest is Test {
         calculator = new Calculator(initialValue, admin);
     }
 
-    // Unit testing
+    // Unit testing (given inputs)
     function testCheckFirstResultado() public view {
         assert(initialValue == calculator.result());
     }
@@ -39,7 +38,9 @@ contract CalculatorTest is Test {
 
     function testCannotMultiplyTwoLargeNumbers() public {
         vm.expectRevert();
-        calculator.multiplication(3456789098654323456789009876543459654345678900987654345678900987654678900, 1098765456780);
+        calculator.multiplication(
+            3456789098654323456789009876543459654345678900987654345678900987654678900, 1098765456780
+        );
     }
 
     function testDivisionRevertsOnZeroDivisor() public {
@@ -60,6 +61,13 @@ contract CalculatorTest is Test {
         vm.startPrank(admin);
         calculator.setResult(0);
         assert(initialValue == calculator.result());
+        vm.stopPrank();
+    }
+
+    // Fuzzing testing (random inputs)
+    function testFuzzingAddition(uint32 firstNumber, uint32 secondNumber) public {
+        vm.startPrank(admin);
+        calculator.addition(firstNumber, secondNumber);
         vm.stopPrank();
     }
 }

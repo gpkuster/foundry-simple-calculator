@@ -2,7 +2,6 @@
 pragma solidity 0.8.24;
 
 contract Calculator {
-
     uint256 public result;
     address public admin;
 
@@ -66,9 +65,8 @@ contract Calculator {
     }
 
     /// @notice Allows admin to reset the result value
-    /// @param _result The value to set     
-    function setResult(uint256 _result) external onlyAdmin() {
+    /// @param _result The value to set
+    function setResult(uint256 _result) external onlyAdmin {
         result = _result;
     }
-
 }
